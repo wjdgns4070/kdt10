@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .border{
+            border-color: #00ffff red black blue;
+            border-width: 4px 3px 2px 1px;
+            border-style: dashed dotted double solid;
+            border-radius: 5px 10px 15px 20px;
+            width: 200px;
+            height: 200px;
+            
+        }
+        .box-sizing{
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border: 15px solid red;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="border"></div>
+    <div class="box-sizing" style="box-sizing: content-box;">content-box</div>
+    <div class="box-sizing" style="box-sizing: border-box;">border-box</div>
+</body>
+</html>

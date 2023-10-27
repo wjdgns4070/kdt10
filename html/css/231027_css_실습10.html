@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color:aliceblue;
+        }
+        .textarea:hover{
+            background-color: beige;
+        }
+        
+        .date{
+            margin-left: 700px;
+        }
+        .설문조사기관:hover{
+            background-color: aqua;
+            
+        }
+        .이름 input:focus{
+            background-color: aqua;
+            
+        }
+        .border{
+            margin: auto;
+            border-width: 5px 5px 5px 5px;
+            border-color:aquamarine ;
+            border-style: dashed;
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <br><br><hr>
+    <div class="border">    
+    <form>
+        <h4>설문조사</h4>
+        <div class="이름">이름<input type="text"><br></div>
+        이메일<input type="email" placeholder="love@example.com">
+        <h4>나이</h4>
+        <input type="radio" name="age" value="10대" checked>10대
+        <input type="radio" name="age" value="20대">20대
+        <input type="radio" name="age" value="30대">30대
+        <input type="radio" name="age" value="40대">40대
+        <h4>원하는 강의(복수 응답 가능)</h4>
+        <input type="checkbox" name="lecture" value="html" checked>html
+        <input type="checkbox" name="lecture" value="javascript">javascript
+        <input type="checkbox" name="lecture" value="css">css
+        <br><br>
+        <div class="textarea" style="overflow: auto;"><textarea cols="100" rows="10" placeholder="하고 싶은 말을 써주세요~">
+
+        </textarea></div>
+        <div class="제출"><input type="button" value="제출"></div>
+        <div class="date"><input type="date"></div>
+        <div class="설문조사기관"><a href="https://naver.com">설문조사 기관 바로가기</a></div>
+        <div ></div>
+        
+    </form>
+</div>
+</body>
+</html>

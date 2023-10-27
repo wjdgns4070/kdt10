@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1:hover{
+            color: red;
+        }
+        a:active{
+            background-color: blue;
+        }
+        input:focus{
+            background-color: orange;
+        }
+        /* hr이후 */
+        .stripes div:nth-child(2n+1){
+            background-color: navy;
+            color: white;
+        }
+        .stripes div:nth-child(2n){
+            background-color: yellow;
+        }
+        .box::after{
+            content: "빨리";
+        }
+        .box::before{
+            content: "택시";
+        }
+        [disabled]{
+            background-color: red;
+        }
+        [placeholder="이름"]{
+            background-color: orange;
+        }
+        *:not([placeholder]){
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>네이버</h1>
+    <a href="https://naver.com">네이버</a>
+    <input type="text">
+
+    <hr>
+    <div class="stripes">
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>yellow</div>
+    </div>
+    <br><hr><br>
+    <div class="box">여기요!</div>
+    <br><hr><br>
+    <input type="text" placeholder="이름" />
+    <input type="password" value="PW" />
+    <input type="text" value="000-0000-0000" />
+    <input type="text" placeholder="핸드폰" />
+    <input type="text" placeholder="주민번호" disabled />
+
+</body>
+</html>

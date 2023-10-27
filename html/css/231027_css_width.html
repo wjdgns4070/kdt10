@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>width & height</title>
+    <style>
+        /* border */
+        .border{
+            margin: 10px;
+            border: 2px solid black;
+            border: 2px dotted red;
+            width: 200px;
+            height: 200px;
+        }
+
+        .square{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            display: inline-block;
+        }
+        .d-none{
+            display: none;
+            background-color: red;
+        }
+        .invisiable{
+            visibility: hidden;
+            background-color: orange;
+
+        }
+        .opacity-0{
+            opacity: 0;
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+<body style="margin: 0;">
+        
+    <div style="background-color: aqua; width: 100px;
+    height: 100px;"></div>
+     <div style="background-color: aquamarine; width: 100vw;
+     height: 100px;"></div>
+     <!-- max, min -->
+     <div style="background-color: orange; width: calc(30vw - 100px); height: 30vw; max-width: 300px; min-width: 200px;">
+    </div>
+
+    <!-- border -->
+    <div class="border"></div>
+
+    <!-- visivility -->
+    <div class="square">original</div>
+    <div class="d-none">d-none</div>
+    <div class="invisiable">invisible</div>
+    <div class="opacity-0">opacitiy-0</div>
+    <div class="square">original</div>
+
+    <!-- overflow -->
+    <div class="square" style="overflow: scroll;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente sunt magnam doloremque laborum necessitatibus! Dolor ipsum corrupti ipsam est beatae. Omnis aperiam eveniet sunt saepe blanditiis magnam nihil deleniti fugit!
+    Accusantium labore maxime aperiam autem laborum! Fugit doloribus tempore hic, consequatur natus, ipsum, numquam officia dicta nostrum nihil saepe possimus quisquam voluptatibus. Explicabo, aperiam corporis nihil est porro perspiciatis quidem?
+    Ullam minima rem doloribus provident ipsa velit amet ratione nihil molestiae voluptatibus consequatur molestias ipsum sapiente qui dolorem perferendis incidunt praesentium labore quis explicabo inventore facilis consectetur, quidem id. Optio!</div>
+    <div class="square" style="overflow: auto;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus culpa corporis reiciendis nesciunt, cupiditate, sint modi voluptatibus exercitationem reprehenderit quod, suscipit perferendis! Pariatur aspernatur labore nemo cumque itaque commodi corporis!</div>
+    <div class="square">over flow</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
