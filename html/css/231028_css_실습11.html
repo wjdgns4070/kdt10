@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            margin: 0;
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+            
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .item1{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: relative;
+            left: 50px;
+            top: 30px;
+            line-height: 100px;
+            text-align: center;
+        }
+        .item2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 380px;
+            bottom: 150px;
+            
+            line-height: 100px;
+            text-align: center
+        }
+        .item3{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: fixed;
+            left: 1000px;
+            top: 100px;
+            
+            line-height: 100px;
+            text-align: center
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" style="background-color: red;"></div>
+        <div class="box relative" style="background-color: orange;">item1</div>
+        <div class="box absolute" style="background-color: yellow;">item2</div>
+        <div class="box fixed" style="background-color: green;">item3</div>
+        </div>
+</body>
+</html>
