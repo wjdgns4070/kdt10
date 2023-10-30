@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{width: 100%}
+        div{
+            position: absolute;
+            animation-duration: 10s;
+            animation-iteration-count: 2;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-name: 123;
+            width: 700px;
+            height: 450px;
+            margin: 0;
+        }
+        .sky{
+            
+            position: absolute;
+            animation-duration: 10s;
+            animation-iteration-count: 2;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-name: sky;
+        }
+        @keyframes sky {
+            0%{background-color: #636888}
+            25%{background-color: #b1e1e2;}
+            50%{background-color: #fcd2e2}
+            75%{background-color: #675577}
+            100%{background-color: #636888}
+        }
+
+        #city{
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        top:0;
+        
+        position: absolute;
+        }
+
+        #sun{
+
+            position: absolute;
+            animation-duration: 10s;
+            animation-iteration-count: 2;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-name: sun;            
+            width: 180px;
+            z-index: 50;
+            left: 50px;
+            
+        }
+        @keyframes sky {
+            0%{transform: rotate(0deg);}
+            25%{transform: rotate(90px)}
+            50%{transform: rotate(180px)}
+            75%{transform: rotate(270deg)}
+            100%{transform: rotate(360deg)}
+        }
+        #cloud{
+        width: 160px;
+        z-index: 3;
+        left: 100px;
+        top:100px;
+        position: absolute;
+        }
+        #cloud2{
+        width: 90px;
+        z-index: 4;
+        right: 100px;
+        top:100PX;
+        position: absolute;
+        }
+        #moon{
+        width: 160px;
+        z-index: 3;
+        left: 50px;
+        top:0;
+        position: absolute;
+        opacity: 0;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div>
+        <img src="C:\Users\ljj88\OneDrive\바탕 화면\github\kdt10\html\css\img\city.png" id="city">
+        <img src="C:\Users\ljj88\OneDrive\바탕 화면\github\kdt10\html\css\img\cloud.png" id="cloud">
+        <img src="C:\Users\ljj88\OneDrive\바탕 화면\github\kdt10\html\css\img\moon.png" id="moon">
+        <img src="C:\Users\ljj88\OneDrive\바탕 화면\github\kdt10\html\css\img\cloud.png" id="cloud2">
+        <img src="C:\Users\ljj88\OneDrive\바탕 화면\github\kdt10\html\css\img\sun.png" id="sun">
+        <DIV class="sky"></DIV>
+    </div>
+</body>
+</html>
