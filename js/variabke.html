@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valiable</title>
+    <script>
+        /*
+        자료형
+        -기본
+            -string
+            -number
+            -boolean
+            -null
+            -undefined
+        -객체
+            -array
+            -object
+        */ 
+
+        // 1.string
+        let myName = "길동";
+        let email = "gildong@naver.com";
+        let city = '서울';
+
+        console.log(myName)
+        console.log(email)
+        console.log(city)
+        // 문자와 변수를 동시에 출력
+        console.log('내 이름은',myName,'입니다')
+        console.log('내 이름은'+myName+'입니다')
+        // ,를 사용하여 전개하면 ,자리에 띄어쓰기가 들어가게되고
+        // +를 사용하여 전개하면 붙여쓰기로 나온다
+
+        // 백틱 (``)
+        console.log(`내 이름은 ${myName} 입니다.`)
+        let gildong = `내 이름은 ${myName} 입니다.`
+        console.log(gildong)
+
+        // 2. number
+        let number = 123;
+        let opacity = 0.7;
+        console.log(number);
+        console.log(opacity);
+        // NaN: not a number
+        console.log('apple' - 3) //NaN
+        console.log('123' - 3) // console.log에서 변환을해서 120으로 나오게는 된다
+
+        // 처럼 문자형과 숫자형의 계산으로 숫자가 아닌 경우를 말한다
+
+        // 3.boolean
+        let cheked = true;
+        let isShow = false;
+
+        console.log(cheked);
+        console.log(isShow);
+
+        // 4. undefined
+        let undef;
+        console.log(undef)
+
+        // 5. null
+        let empty = null;
+        console.log(empty);
+
+        // 6. array
+        let fruits = ['orange','pineapple','grape','apple'];
+        let data = [1,'gildong',false,null,undefined]
+        
+        console.log(fruits)
+        console.log(data)
+
+        console.log(fruits[0],fruits[1])
+
+        // 2차원 배열 : [ [] , [] , [] ]
+
+        //배열 함수
+        fruits.push('banana')
+        console.log(fruits)
+        fruits.pop(1);
+        console.log(fruits)
+        fruits.unshift('orange')
+        fruits.shift()
+            console.log(fruits)
+        
+        console.log(fruits.indexOf("orange"))
+        console.log(fruits.includes('peach'))
+
+        // 7. object
+        let cat = {
+            name: '나비',
+            age: 1,
+            isCute:true,
+            mew: function() {
+                console.log('냐옹')
+            }
+        }
+        console.log(cat.mew)
+        console.log(cat.name)
+        console.log(cat.age)
+
+
+        let 소개 ={
+            name: '윤정훈',
+            age: 25,
+            isMan:true,
+
+        }
+
+        console.log('이름은',소개.name)
+        console.log('나이는',소개.age)
+        console.log('남성인가요?',소개.isMan)
+
+        //typeof
+        console.log(typeof'문자');
+        console.log(typeof'123');
+        console.log(typeof true);
+        console.log(typeof 123);
+        console.log(typeof fruits);
+        console.log(typeof null);
+        console.log('typeof를 array나 null에 사용하면'+typeof null+'결과를 얻을 수 있다.')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

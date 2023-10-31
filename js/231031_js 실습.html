@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let color = ['red','orange','black','green','blue','navy','puple'];
+
+        console.log(color[2])
+        color.push('skyblue')
+        console.log(color)
+        console.log(color.indexOf('black'))
+        console.log(color.reverse())
+
+        console.log(typeof 1 ,"isn't",typeof '문자', 'data type')
+        console.log("typeof"+'를 boolean이나 null에 사용하면,',typeof null,'나',typeof true,'결과를 얻을 수 있습니다.')
+
+
+        //형 변환
+        // let mathscore = prompt('수학 점수를 입력해주세요.');
+        // let engscore = prompt('영어 점수를 입력해주세요.');
+
+        // let avg = (mathscore + engscore) / 2;
+        // console.log(avg);
+
+    //1. 값 -> 문자 string() 
+    let str1 = true;
+    let str2 = 123;
+    let str3 = null;
+
+
+    console.log(typeof String(str1));
+    console.log(typeof String(str2));
+    console.log(typeof String(str3));
+    console.log(typeof str3.toString());
+
+    //2. 값 -> 숫자 Number()
+    let n1 = true;
+    let n2 = false;
+    let n3 = "123.9";
+
+        console.log(typeof Number(n1));
+        console.log(typeof Number(n2));
+        console.log(typeof Number(n3));
+
+        console.log(Number(n1));
+        console.log(Number(n2));
+        console.log(Number(n3));
+
+        let mathscore = 77;
+        let engscore = 88;
+        let avgscore = (mathscore + engscore) / 2;
+        
+        console.log(Number(avgscore));
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
