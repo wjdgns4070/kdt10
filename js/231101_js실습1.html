@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //3번
+        //전역변수랑 지역변수
+        //전역변수 > 지역변수 전역변수 범위가 큰것
+        //but 지역 변수가 좀 더 특별한것
+        function test1(x,y){
+            return x+y
+        }
+        function test2(x,y){
+            return x-y
+        }
+        function test3(x,y){
+            return x*y
+        }
+        function test4(x,y){
+            return x/y
+        }
+        function test1(){
+            let x = prompt('첫 숫자');
+            x=Number(x);
+            let y = prompt('두번째 숫자');
+            x=Number(y);
+	}
+    function test2(){
+            inputString = prompt(x,y);
+	alert(x,y);}
+    function test3(){
+            inputString = prompt(x,y);
+	alert(x,y);}
+    function test4(){
+            inputString = prompt(x,y);
+	alert(x,y);}
+
+
+    //정답
+    let num1 = prompt('숫자1');
+    num1 = Number(num1);
+    let num2 = prompt('숫자2');
+    num2 = Number(num2);
+    
+    function add() {
+        
+        let result = num1+num2
+        alert(result);
+    }
+    function sub() {
+        
+        let result = num1-num2
+        alert(result);
+    }
+    function mul() {
+        
+        let result = num1*num2
+        alert(result);
+    }
+    function div() {
+        
+        let result = num1/num2
+        alert(result);
+    }
+
+    
+    </script>
+</head>
+<body>
+    <button onclick="add()"></button>
+    <button onclick="sub()"></button>
+    <button onclick="mul()"></button>
+    <button onclick="div()"></button>
+</body>
+</html>
