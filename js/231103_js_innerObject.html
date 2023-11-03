@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표준 내장 객체</title>
+    
+    
+    <script>
+        //표준 내장 객체
+        // : 자바스크립트가 기본적으로 가지고 있는 객체
+
+        //1.Date
+        let now = new Date();
+        console.log(now);
+        console.log(now.getFullYear(),"년")
+        console.log(now.getMonth() + 1,"월") //0~11 까지 나옴
+        console.log(now.getDate(),"일")
+        console.log(now.getHours(),"시")
+        console.log(now.getMinutes(),"분")
+        console.log(now.getSeconds(),"초")
+        console.log(now.getMilliseconds(),'ms')
+        console.log(now.getDay())//0~6까지 나오는데 0은 일요일 6은 토요일을 의미한다.
+        
+        //Date 객체를 이용해서 오늘 요일을 얻고,오늘이 평일인지 주말인지 출력하기
+        if(now.getDay()==0){
+            console.log("월")
+        }else if(now.getDay()==1){
+            console.log("화")
+        }else if(now.getDay()==2){
+            console.log("수")
+        }else if(now.getDay()==3){
+            console.log("목")
+        }else if(now.getDay()==4){
+            console.log("금")
+        }else if(now.getDay()==5){
+            console.log("토")
+        }else if(now.getDay()==6){
+            console.log("일")
+        }
+        //switch문
+        switch(now.getDay()) {
+            case 0:
+            case 6:
+                console.log('주말');
+            break
+            default:
+                console.log('평일')
+            break
+        }
+        //2. Math 개체
+        //속성
+        console.log(Math.pi)
+        console.log(Math.E)
+        console.log(Math.SQRT2);// 루트 2
+
+        // 메소드
+        console.log(Math.min(45, 2, 0, -5, 15))
+        console.log(Math.max(45, 2, 0, -5, 15))
+        console.log(Math.random()); // 0 <= x < 1
+        console.log(Math.round(5.1)); //반올림:정수 값
+        console.log(Math.round(5.1)); //버림
+        console.log(Math.ceil(5.1)); //올림
+
+        console.log(Math.floor(Math.random() * 100) + 1);
+        // 1 <= x < 100
+        
+        //삼항 연산자
+        now.getDay() == 0 || now.getDay() == 6 ? console.log('주말') : console.log('평일');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
