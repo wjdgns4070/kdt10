@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>방명록입니다</p>
+    <div>
+        작성자 :<input type="text" id="uname"/>
+    </div>
+    <div>
+        내용 : <input type="text" id="ccontent"/>
+    </div>
+    <button type="button" onclick="tcm()">작성</button>
+
+    <table id="table" border="1">
+        <thead>
+        <tr>
+            <td>번호</td>
+            <td>작성자</td>
+            <td>내용</td>
+            <td>작성일</td>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        let cnt = 1
+        function tcm(){
+        let uname = document.getElementById('uname')
+        let ccontent = document.getElementById('ccontent')
+
+        let table = document.getElementById('table')
+        let garo = document.createElement('tr')
+
+        let td1 = document.createElement('td')
+        let td2 = document.createElement('td')
+        let td3 = document.createElement('td')
+        let td4 = document.createElement('td')
+
+        td1.innerText = cnt; cnt++;
+        td2.innerText = uname
+        td3.innerText = ccontent
+
+
+
+
+
+
+        }
+    </script>
+</body>
+</html>

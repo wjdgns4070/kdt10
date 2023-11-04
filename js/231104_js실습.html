@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<body>
+    <h5>방명록입니다.</h5>
+    <div>
+    작성자:<input type="text" id="username"/>
+    </div>
+
+    <div>
+    내용:<input type="text" id="content">
+    </div>
+
+    <br />
+    <button type="button" onclick="tc1()" style="margin-bottom: 20px">
+    작성
+    </button>
+
+    <table border="1" cellspacing="1" cellpadding="20">
+    
+        <tr>
+        <td>번호</td>
+        <td>작성자</td>
+        <td>내용</td>
+        <td>작성일</td>
+        </tr>
+    </table>
+
+    <script>
+        //전역변수 cnt라는 변수 만들기
+        //전역변수 : 어디서든 script 태그 안에서 사용가능
+        let cnt = 1;
+    function tc1(){
+        let username = document.getElementById('username').value
+        let content = document.getElementById('content').value
+    
+    //테이블 추가
+    //여러 개의 자식을 추가할 경우 : 거꾸로 추가해주면 된다
+    //td 만들기 -> td를 tr에 추가 -> (tr>td) 이 tr을 통째로 table에 추가
+    
+    let table = document.getElementById('table')
+    //새로운 요소 만들기 (tr,td - 4개 -번호, 작성자, 내용, 작성일)
+    let garo = document.createElement('tr')
+    
+    // td 4개 만들기
+    let td1 = document.createElement('td')
+    let td2 = document.createElement('td')
+    let td3 = document.createElement('td')
+    let td4 = document.createElement('td')
+    //td 안의 내용 값 채우기
+    //td1 : 순서(번호)
+    //td2 : 작성자
+    //td3 : 내용
+    //td4 : 작성시간
+    //tr (garo) 요소에 만든 td들 자식요소로 추가
+        td1.innerText = cnt ;
+        cnt ++;
+        td2.innerText = username
+        td3.innerText = content
+        let date = new Date();
+        td4.innerText = date.getFullYear() + '-' +(date.getMonth() + 1 ) + '-' + (date.getDate())
+    //tr 요소를 table 요소에 자식 요소로 추가
+
+    
+    
+    
+    
+
+    garo.append(td1)
+    garo.append(td2)
+    garo.append(td3)
+    garo.append(td4)
+
+    table.appendChild(garo)
+
+    let username1 = document.getElementById('username').value
+    let content2 = document.getElementById('content').value
+
+    username1.value=""
+    content2.value=""
+}
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

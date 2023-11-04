@@ -13,12 +13,14 @@
     <div><input type="text" id = "val4" value=""></div>
 
     <button onclick="cal()">계산하기</button>
+    <button onclick="res()">리셋하기</button>
     <script>
+        function cal(){
         let val1 = document.getElementById('val1')
         let val2 = document.getElementById('val2')
         let val3 = document.getElementById('val3')
         let val4 = document.getElementById('val4')
-        function cal(){
+        
         if(val3.value == "+"){
             val4.value = Number(val1.value) + Number(val2.value)
         }else if(val3.value == "-"){
@@ -28,6 +30,18 @@
         }else if(val3.value == "/"){
             val4.value = Number(val1.value) / Number(val2.value)
         }}
+
+        function res(){
+        let val1 = document.getElementById('val1')
+        let val2 = document.getElementById('val2')
+        let val3 = document.getElementById('val3')
+        let val4 = document.getElementById('val4') 
+        
+            var1.value=" "
+            var2.value=" "
+            var3.value=" "
+            var4.value=" "
+        }
         
     </script>
 </body>
