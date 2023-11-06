@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery실습</title>
+    <style>
+        body{
+            margin-left: 30%;
+            margin-top: 20px;
+            
+        }
+    </style>
+    <script
+src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+
+<script>
+    // function changeImg(){
+    //     //img src속성을 변경해주는 함수
+    //     //name : apple or banana or grape or peach
+    //     $('img').attr('src','/img/${name}.png')
+    // }
+function 사과(){
+    $('img').attr('src','https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTNfMTAg%2FMDAxNjk0NTY4NzQ0NDIw.dS2HV-E3_iWjJSCqStfqCWF_BC-q2JP9T3KIFzg4FHEg.skbSU-AqSEjjdiwaBOuJijOxNxZ_Ly3BISXjUCpEj1Qg.PNG.hungnong1115%2F%25BB%25E7%25B0%25FA.PNG&type=sc960_832')
+}
+function 바나나(){
+    $('img').attr('src','https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MDJfMTUg%2FMDAxNjkzNjM3OTgxMjA5.j19_r2NpWROxidnZlyBXIhnZn17RPY6HjBn0HyIsiPsg.dITMcAW2XKwEPyt5j0b_YDgtdf17DbYbNBxyv8eYELgg.PNG.taehana0426%2F%25BD%25BA%25C5%25A9%25B8%25B0%25BC%25A6_2023-09-02_15.58.37.png&type=sc960_832')
+}
+function 포도(){
+    $('img').attr('src','https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MDFfMjE5%2FMDAxNjkzNTU2NjU5OTc5.RoKy3pWSh4bdMYAvYKW-Dr2RYI06Rx50jpXIZxknkxIg.lVZSlSmq9NKj_Mp2wIEYlDhvBAsrjNhWLLVMY7zSBvUg.JPEG.hamaskindc%2FCK_cm280027918.jpg&type=sc960_832')
+}
+function 복숭아(){
+    $('img').attr('src','https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MjVfMjIw%2FMDAxNjk1NjI2OTU0Nzc1.r3mJkW7Ma0B49xgSuKXrRJOYLdskZuS_dOgJwDsznUgg.X35t9Obwrjkeq-GMjMWKzIXovTKGBHGWMrIHjLlvgm4g.PNG.hgh2815%2F1.PNG&type=sc960_832')
+}
+</script>
+</head>
+<body>
+    <img alt= "과일" style="width: 400px; height: 400px;"></img>
+    <br>
+    <button onclick="사과()">사과</button>
+    <button onclick="바나나()">바나나</button>
+    <button onclick="포도()">포도</button>
+    <button onclick="복숭아()">복숭아</button>
+</body>
+</html>
