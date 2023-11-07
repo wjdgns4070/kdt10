@@ -108,11 +108,23 @@
     </table>
 
     <script>
-      let date = document.getElementById('date')
-      $('td > p').on('click',function(e){
-        console.log(date.target)
-        
+      let target
+      $('td > p').on('click',function(){
+        // console.log(this)        
+       //console.log($(this).text()) //날짜만을 가져오기 위한 this의 text값 도출
+        $('#date').val($(this).text())
+        target = this
       }) 
+
+      function writeSchedule(){
+        let content = $('#content').val()
+        $(target).parent().append('<span>' + content + "</span><br />")
+        // $(target.parentNode).append(~~)
+
+            // 초기화
+            $('#content').val("");
+            $('#date').val("");
+      } 
     </script>
   </body>
 </html>
