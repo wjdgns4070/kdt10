@@ -6,15 +6,17 @@
     <script
 src="https://code.jquery.com/jquery-3.7.1.min.js"
 integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-crossorigin="anonymous">
+crossorigin="anonymous"></script>
+
+<SCript>
     function setValue(){
-        $('input1').Val('setting');
+        $('#input1').Val();
         // document.getElementById('input1').vlaue = 'setting'
     }
 
 
     function getValue(){
-        alert($('#input1').val())
+        alert($('#input1').val('setting'))
     }
 
 
@@ -34,8 +36,8 @@ crossorigin="anonymous">
         $('p').html('<h3>jQuery html</h3>')
         // p요소.innerHTML = '~~'
     }
-</script>
 
+</SCript>
 
     <title>Document</title>
 </head>

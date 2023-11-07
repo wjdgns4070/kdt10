@@ -108,11 +108,45 @@
     </table>
 
     <script>
-      let date = document.getElementById('date')
+
+      //this를 기억하기 위한 전역변수
+      let target
+      
+      //방법1
+      // let dateck 
+      // $('td > p').on('click',function(e){
+      //   $('#date').val(e.target.innerText);
+      //   dateck=e.target
+      // }) 
+
+
       $('td > p').on('click',function(e){
-        console.log(date.target)
         
+        //날짜만 가져오려면
+        console.log(this)
+        console.log($(this).text())
+
+        //날짜, 내용 input 선택
+        // let date = $(this).text()
+        $('#date').val($(this).text())
+        //target에 this를 기억해두기
+        target=this
       }) 
+
+      function writeSchedule(){
+      let content = $('#content').val()
+      
+      //요소 추가
+      $(target).parent().append('<span>' + content + '</Span>') 
+      
+      //초기화
+      // $('content').val('')
+      // $('date').val('')
+      
+      }
+
+      
+    
     </script>
   </body>
 </html>
