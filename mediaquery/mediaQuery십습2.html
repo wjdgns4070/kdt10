@@ -52,91 +52,16 @@
             font-weight: 800;
             cursor: pointer;
         }
-/* 테블릿 */
-        @media screen and (768px < width <= 1024px) {
-
-            header {
-                height: 60px
-            }
-
-            header .inner {
-                flex-direction: column;
-            }
-
-
-            header .inner .logo {
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                position: fixed;
-                left: 200px;
-            }
-
-            header .inner .menu {
-                display: block;
-                position: fixed;
-                width: 100%;
-                text-align: center;
-                top: 60px;
-                background-color: skyblue;
-
-
-            }
-
-            header .inner .munu li {
-                padding: 10px 0;
-                font-weight: 500
-            }
-
-        }
-
-        @media screen (max-width : 480px) {
-            header {
-                height: 45px
-            }
-
-            header .inner {
-                flex-direction: column;
-                background-color: palevioletred;
-            }
-
-
-            header .inner .logo {
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                position: fixed;
-                left: 200px;
-            }
-
-            header .inner .menu {
-                display: block;
-                position: fixed;
-                width: 100%;
-                text-align: center;
-                top: 60px;
-                background-color: pink;
-
-
-            }
-
-            header .inner .munu li {
-                padding: 10px 0;
-                font-weight: 500;
-                font-size: 0.8rem;
-            }
-
-        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="inner">
-            <div class="logo">
+        <div class ="inner fixed-top">
+            <div class="logo fixed-top">
                 <i class="fa-solid fa-igloo"></i>
             </div>
-            <ul class="menu">
+            <ul class="menu fixed-top">
                 <li>메뉴1</li>
                 <li>메뉴2</li>
                 <li>메뉴3</li>
@@ -262,8 +187,8 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="inner">
+    <header class="fixed-top">
+        <div class ="inner">
             <div class="logo">
                 <i class="fa-solid fa-igloo"></i>
             </div>
@@ -274,6 +199,7 @@
                 <li>메뉴4</li>
             </ul>
         </div>
+        <div style="height: 50000px;"></div>
     </header>
 </body>
 </html>
