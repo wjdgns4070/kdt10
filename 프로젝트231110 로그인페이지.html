@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 16px;
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login</h2>
+        <label for="id">ID:</label>
+        <input type="text" name="id" id="id">
+
+        <label for="pw">Password:</label>
+        <input type="password" name="pw" id="pw">
+
+        <button type="button" onclick="login()">Login</button>
+        <button type="button" onclick="checkLoggedIn()">Check Login</button>
+        <button type="button" onclick="logout()">Logout</button>
+
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        const inputId = document.querySelector('#id');
+        const inputPw = document.querySelector('#pw');
+        const message = document.querySelector('#message');
+
+        const id = 'aaaa';
+        const pw = '1234';
+
+        const login = () => {
+            if (inputId.value && inputPw.value) {
+                if (inputId.value === id) {
+                    if (inputPw.value === pw) {
+                        localStorage.setItem('loggedIn', true);
+                        inputId.value = '';
+                        inputPw.value = '';
+                        showMessage('Login successful!', 'green');
+                    } else {
+                        inputPw.value = '';
+                        showMessage('Incorrect password. Please try again.', 'red');
+                    }
+                } else {
+                    inputId.value = '';
+                    inputPw.value = '';
+                    showMessage('Incorrect ID. Please try again.', 'red');
+                }
+            } else {
+                showMessage('Please enter ID and password.', 'red');
+            }
+        }
+
+        const checkLoggedIn = () => {
+            if (localStorage.getItem('loggedIn')) {
+                showMessage('You are logged in.', 'green');
+            } else {
+                showMessage('You are not logged in.', 'red');
+            }
+        }
+
+        const logout = () => {
+            localStorage.removeItem('loggedIn');
+            showMessage('You have been logged out.', 'green');
+        }
+
+        const showMessage = (text, color) => {
+            message.textContent = text;
+            message.style.color = color;
+        }
+    </script>
+</body>
+</html>
