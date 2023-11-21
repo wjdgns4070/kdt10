@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차곡차곡</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+    <link rel="icon" href="./img/face.png" type="image/x-icon">
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="./img/logo.png" onclick="location.href='./main.html'">
+        <div class="loginBtn" onclick="location.href='./login.html'"> 로그인</div>
+        <!-- <i class="fa-solid fa-bars"></i> -->
+        <img src="./img/menu.svg" class="menuBtn">
+        
+        <div class="user-profile">
+            <div class="user-name">환영합니다<br></div>
+            <img id="profile" src="./img/face.png">
+        </div>
+        <div class="user-name-span">
+            <div class="logoutBtn" onclick="logout();">로그아웃</div>
+        </div>
+
+    </div>
+    <!-- <div class="slide-nav"></div> -->
+    <div class="cha-container">
+        <div class="cha-nav">
+            <div class="nav-loginBtn" onclick="location.href='./login.html'">로그인</div>
+            <div class="nav-user-profile">
+                <div class="nav-user-name">환영합니다<br></div>
+                <img id="profile" src="./img/face.png">
+            </div>
+            <div class="nav-user-name-span">
+                <div class="nav-logoutBtn" onclick="logout();">로그아웃</div>
+            </div>
+            <!-- <div class="nav-user-name-span">
+                <div onclick="logout();">로그아웃</div>
+            </div> -->
+            <ul class="nav-menu">
+                
+                <a href="./index.html">
+                    <li class="nav-li">
+                        <img src="./img/fedger.svg" class="li-img">감정소비 가계부
+                    </li>
+                </a>
+                <a href="./index.html">
+                    <li class="nav-li">
+                        <img src="./img/diary.svg" class="li-img">다이어리
+                    </li>
+                </a>
+                <a href="./index.html">
+                    <li class="nav-li">
+                        <img src="./img/challenge.svg" class="li-img">챌린지
+                    </li>
+                </a>
+            </ul>
+            
+            <div class="tetris">
+                <img class="t-sad" src="./img/sad.png">
+                <img class="t-happy" src="./img/happy.png">
+                <img class="t-boring" src="./img/boring.png">
+                <img class="t-frustrating" src="./img/frustrating.png">
+                <img class="t-angry" src="./img/angry.png">
+            </div>
+        </div>
+        <div class="cha-content">
+
+
+        </div>
+    </div>
+</body>
+
+</html>
