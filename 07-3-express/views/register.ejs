@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./component/head', {title: 'Login' }) %>
+</head>
+<style>
+    label{
+        width: 100px;
+    }
+    .mb-3{
+        width: 300px;
+    }
+</style>
+
+<body>
+    <%- include('./component/header') %>
+        <h1>회원 가입</h1>
+        <label for="name">이름 : </label><input type="text" placeholder="이름">
+        <br><br>
+        <label for="e-mail">이메일 : </label><input type="text" placeholder="abc@naver.com">
+        <br><br>
+        <label for="ID">ID : </label><input type="text" placeholder="ID">
+        <br><br>
+        <label for="PW">패스워드 : </label><input type="password" placeholder="PW">
+        <br><br>
+        <label for="local">주소 : </label><input type="text" placeholder="ex: 둔산동 OO-OO">
+        <button type="button" class="btn btn-primary">주소 찾기</button>
+        <br><br>
+        <div class="mb-3">
+            <label for="formFileSm" class="form-label">첨부파일</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+          </div>
+          <button type="button" class="btn btn-info" style="margin-left: 300px;color: white;">회원가입</button>
+</body>
+
+</html>
