@@ -95,6 +95,12 @@ class Rectangle extends shape {
     getRectangle(){
         return Math.sqrt(this.width**2 + this.height**2)
     }
+
+    getArea
+
+
+
+
 }
 
 let Rec = new Rectangle(3,4);
@@ -113,3 +119,16 @@ class Triangle extends shape {
 
 let Tri = new Triangle(3,4);
 console.log(Tri.getArea())
+
+class circle extends shape {
+    constructor (width, height, radius){
+    super(width,height)
+    this.radius = radius
+    }
+    getArea(){
+        return Math.PI * (this.radius**2)
+    }
+}
+
+let cir = new circle(3,4,5)
+console.log(cir.getArea())

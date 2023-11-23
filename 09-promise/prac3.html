@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>안녕하세요!</h1>
+    <script>
+        function colRed(){
+            return new Promise(function(resolve, reject) {
+                setTimeout(function(){
+                    const result = 'red';
+                    resolve(result)
+                } ,1000)
+            })
+        }
+        function colOrange(){
+            return new Promise(function(resolve,reject) {
+                setTimeout(function(){
+                    const result = 'orange';
+                    resolve(result)
+                } ,1000)
+            })
+        }
+        function colYellow(){
+            return new Promise(function(resolve,reject) {
+                setTimeout(function(){
+                    const result = 'yellow';
+                    resolve(result)
+                } ,1000)
+            })
+        }
+        function colGreen(){
+            return new Promise(function(resolve,reject) {
+                setTimeout(function(){
+                    const result = 'green';
+                    resolve(result)
+                } ,1000)
+            })
+        }
+        function colBlue(){
+            return new Promise(function(resolve,reject) {
+                setTimeout(function(){
+                    const result = 'blue';
+                    resolve(result)
+                } ,1000)
+            })
+        }
+        
+        colRed('red')
+        .then(function (result1){
+            console.log(document.body.style.backgroundColor = result1)
+            return colOrange()
+        }) .then(function (result2){
+            console.log(document.body.style.backgroundColor = result2)
+            return colYellow()
+        }) .then(function (result3){
+            console.log(document.body.style.backgroundColor = result3)
+            return colGreen()
+        }) .then(function (result4){
+            console.log(document.body.style.backgroundColor = result4)
+            return colBlue()
+        }) .then(function (result5){
+            console.log(document.body.style.backgroundColor = result5)
+            
+        })
+
+        
+        
+        //---------좀더 간단화 해서 사용하는 식-----------
+        
+        // function changeBgColor(newColor){
+        //     return new Promise((resolve,reject) => {
+        //         setTimeout(function() {
+        //             document.body.style.backgroundColor = newColor
+        //             resolve()
+        //         },1000);
+        //     })
+        // }
+
+        //--------1.tnen()을 이용 (내가한 방법)---------
+        // changeBgColor('red')
+        // .then(function(){
+        //     return changeBgColor('orange')
+        // }).then(function(){
+        //     return changeBgColor('yellow')
+        // }).then(function(){
+        //     return changeBgColor('green')
+        // }).then(function(){
+        //     return changeBgColor('blue')
+        // })
+
+        // ------------2.async-await 이용(좀더 간단)-------
+        // async function exec(){
+        //     await changeBgColor('red')
+        //     await changeBgColor('orange')
+        //     await changeBgColor('yellow')
+        //     await changeBgColor('green')
+        //     await changeBgColor('blue')
+            
+        //     }
+        //     exec();
+    
+    </script>
+</body>
+</html>
+
+    
