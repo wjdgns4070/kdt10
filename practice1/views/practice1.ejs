@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+        <!-- jQurey CDN -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+      fieldset {
+        width: 200px;
+        height: 50px;
+      }
+      .resultBox1{
+        width: 200px;
+        height: 200px;
+      }
+  
+    </style>
+  </head>
+  <body>
+
+
+    
+    <form action="login" name="login">
+      <input type="text" name="ID" id="ID">
+      <input type="text" name="PW" id="PW">
+
+
+      <button type="button" class="logbtn" onclick="axiosPost()">입력하기</button>
+      <div class="resultBox1"></div>
+    </form>
+    
+
+
+    
+    <form action="" name="register">
+      <label for="name">
+        이름
+        <input type="text" name="name" id="name" placeholder="이름" required/>
+      </label>
+
+    
+
+
+
+      <fieldset>
+        <legend>성별</legend>
+        <label for="gender"></label>
+        <input type="radio" name="gender" id="gender" value="남자" required> 남자
+        <input type="radio" name="gender" id="gender" value="여자" required> 여자
+      </fieldset>
+
+      <fieldset>
+        <legend>생년월일</legend>
+        <label for="year"></label>
+        <select name="birthYear" id="year">
+            <% for(let i = 0; i< 30;i++) { %>
+            <option value="<%=2010-i%>">
+            <%= 2010-i%>
+            </option>
+            <% } %>
+        </select>
+       년
+        
+       <label for="month"></label>
+        <select name="birthMonth" id="month">
+            <% for(let i = 1; i <=12; i++) {%>
+            <option value="<%= i%>">
+            <%= i %>
+            </option>
+            <% } %>
+        </select>
+       월
+
+       <label for="date"></label>
+        <select name="birthDate" id="date">
+            <% for(let i = 1; i <= 31; i++) {%>
+            <option value="<%= i%>">
+            <%= i %>
+            </option>
+            <% } %>
+        </select>
+       일
+      </fieldset>
+
+      <fieldset>
+        <legend>관심사</legend>
+        <label for="favor"></label>
+        <input type="checkbox" name="favor" id="favor" value="여행"> 여행
+        <input type="checkbox" name="favor" id="favor" value="패션"> 패션
+        <input type="checkbox" name="favor" id="favor" value="음식"> 음식
+      </fieldset>
+      
+    <br>
+    <button type="button" class="resButton" onclick="ajaxGet()">회원가입</button>
+    <div class="result"></div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+      const resultBox = document.querySelector('.result');
+      const resButton = document.querySelector('.resButton');
+      const logbtn = document.querySelector('logbtn')
+    
+      function ajaxGet() {
+        const form = document.forms["register"];
+        
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+          birthYear: form.birthYear.value,
+          birthMonth: form.birthMonth.value,
+          birthDate: form.birthDate.value,
+          favor: getCheckboxValues(form.favor),
+        };
+    
+        console.log("data>", data);
+    
+        // axios를 사용하여 서버에 GET 요청 보내기
+        axios.get("/ajax", { params: data })
+          .then(response => {
+            console.log(data);
+            resultBox.textContent = `당신의 이름은 ${data.name} 당신의 성별은 ${data.gender} 당신의 출생년도는 ${data.birthYear}년${data.birthMonth}월${data.birthDate}일 좋아하는 것은 ${data.favor} 이군요! `;
+          })
+          .catch(error => {
+            console.error(error);
+            resultBox.textContent = "에러!";
+          });
+      }
+    
+      function getCheckboxValues(checkboxes) {
+        const values = [];
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            values.push(checkbox.value);
+          }
+        });
+        return values;
+      }
+    
+      resButton.addEventListener('click', ajaxGet);
+      
+      function axiosPost() {
+  const form = document.forms["login"];
+  const data = {
+    ID: form.ID.value,
+    PW: form.PW.value,
+  };
+
+  axios({
+    method: "post",
+    url: "/axios",
+    data: data,
+  }).then((response) => {
+    console.log(response.data); 
+
+    const data = response.data;
+    const resultBox1 = document.querySelector('.resultBox1')
+
+    if (data.success) {
+      
+      window.location.href = "/login?success=" + data.success;
+    } else {
+      
+      resultBox1.textContent = "로그인 다시해";
+      resultBox1.style.color = 'red'
+    }
+  });
+}
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
+  </body>
+</html>
