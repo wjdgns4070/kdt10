@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="form_register">
+      <label for="username">사용자명:</label>
+      <input type="text" id="username" name="username" required>
+      <br>
+      <label for="email">이메일:</label>
+      <input type="email" id="email" name="email" required>
+      <br>
+      <label for="password">비밀번호:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <button type="button" onclick="register()">가입하기</button>
+    </form>
+
+    <a href="/user/signin">login</a>
+
+    <script>
+        function register(){
+            const form = document.forms['form_register']
+
+            if(form.checkValicity()){
+                form.reportValidity()
+                return;
+            }
+
+            axios({
+                method: 'post',
+                url: '/user/signup',
+                data: {
+                    userid: form.userid.value,
+                    pw: form.pw.value,
+                    name: form.name.value
+
+                }
+            }).then((res)=>{
+                console.log(res.data)
+
+                alert('회원가입 성공!')
+                //가입 성공시 로그인 페이지로 이동
+                document.location.href = '/user/signin'
+            })
+        }
+    </script>
+</body>
+</html>
