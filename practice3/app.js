@@ -1,22 +1,22 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
+const PORT = 8000;
 
-// 정적 파일 서비스
-app.use(express.static('public'));
-
-// EJS 템플릿 엔진 설정
 app.set('view engine', 'ejs');
+app.set('views', './views');
+app.use('/static', express.static(__dirname + '/static'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// body-parser 설정
-app.use(bodyParser.urlencoded({ extended: true }));
+// [라우터 분리]
+const userRouter = require('./routes/user');
+app.use('/', userRouter); // localhost:PORT/
 
-// 라우팅 설정
-const userController = require('./controllers/userController');
-app.use('/', userController);
+// [404 error] 맨 마지막 라우트로 선언
+app.get('*', (req, res) => {
+    res.render('404');
+})
 
-// 서버 시작
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
-});
+    console.log(`http://localhost:${PORT}`);
+})

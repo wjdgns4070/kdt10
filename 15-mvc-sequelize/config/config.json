@@ -1,0 +1,11 @@
+{
+    "development": {
+        "username": "user",
+        "password": "1234",
+        "database": "kdt",
+        "host": "localhost",
+        "dialect": "mysql"
+    },
+    "production": {},
+    "test": {}
+}

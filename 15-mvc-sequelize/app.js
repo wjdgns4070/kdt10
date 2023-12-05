@@ -1,6 +1,9 @@
+// app.js 또는 index.js
+
 const express = require('express');
 const app = express();
 const PORT = 8000;
+const db = require('./models'); // models 폴더 내의 index.js에서 생성한 db 객체 가져오기
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -17,6 +20,9 @@ app.get('*', (req, res) => {
     res.render('404');
 });
 
-app.listen(PORT, () => {
-    console.log(`http://localhost:${PORT}/user`);
+// 데이터베이스 연결 후 서버 시작
+db.sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+        console.log(`http://localhost:${PORT}/user`);
+    });
 });

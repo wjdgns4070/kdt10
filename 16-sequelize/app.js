@@ -12,6 +12,9 @@ app.use(express.json());
 // [라우터 분리]
 const indexRouter = require('./routes');
 app.use('/', indexRouter); // localhost:PORT/
+const indexRouter = require('./routes/User');
+app.use('/User', indexRouter); // localhost:PORT/
+
 
 // [404 error] 맨 마지막 라우트로 선언
 app.get('*', (req, res) => {
