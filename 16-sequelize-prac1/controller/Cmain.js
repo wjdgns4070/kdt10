@@ -1,8 +1,11 @@
-const{ Player, Profile, Team } = require('../models/index')
+const { Player, Profile, Team } = require('../models/index');
 
-exports.getPlayer = async (req,res)=> {
-    try{
-        const players =await Player.findAll()
-        res.send(players)
+exports.getPlayers = async (req, res) => {
+    try {
+        const players = await Player.findAll();
+        res.send(players);
+    } catch (err) {
+        console.error(err);
+        res.send('Internal Srver Error!');
     }
 }

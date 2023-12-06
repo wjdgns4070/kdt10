@@ -13,10 +13,6 @@ app.use(express.json());
 const indexRouter = require('./routes');
 app.use('/', indexRouter); // localhost:PORT/
 
-// user 실습
-const userRouter = require('./routes/user');
-app.use('/user', userRouter); // localhost:PORT/
-
 // [404 error] 맨 마지막 라우트로 선언
 app.get('*', (req, res) => {
     res.render('404');
@@ -29,4 +25,6 @@ db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
         console.log(`http://localhost:${PORT}`);
     })
+}).catch((err) => {
+    console.log(err);
 })

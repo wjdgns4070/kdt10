@@ -1,144 +1,139 @@
 // [Before]
-// const Visitor = require('../model/Visitor');
+// const User = require('../model/User');
 
 // [After]
-// models: models/index에서 export한 db 객체
 const models = require('../models/index');
-const Visitor = models.Visitor;
+const User = models.User;
 
-// GET /
 exports.main = (req, res) => {
     res.render('index');
 }
 
-// GET /visitor
-exports.get_visitors = (req, res) => {
-    // [Before]
-    // Visitor.getVisitors((result) => {
-    //     // 모델에 rows를 result라는 변수명으로 받음
-    //     console.log('Cvisitor.js >', result);
-    //     res.render('visitor', { data: result });
-    // })
-
-    // [After]
-    // SELECT * FROM visitor
-    Visitor.findAll().then((result) => {
-        console.log('findAll >', result); // [ {}, {}, ... ]
-        res.render('visitor', { data: result });
-    })
+exports.get_signup = (req, res) => {
+    res.render('signup');
 }
 
-// POST /visitor
-exports.post_visitor = (req, res) => {
-    console.log(req.body);
-    const { name, comment } = req.body;
+exports.get_signin = (req, res) => {
+    res.render('signin');
+}
+
+// 회원가입 요청
+exports.post_signup = (req, res) => {
+    console.log('post_signup >', req.body);
+
     // [Before]
-    // Visitor.postVisitor(req.body, (result) => {
-    //     // result: rows.insertId => ex) 3
-    //     console.log(result);
-    //     res.send({ id: result, name, comment });
+    // User.post_signup(req.body, (result) => {
+    //     // result: rows
+    //     res.send(result);
     // })
 
     // [After]
-    // 'INSERT INTO visitor (name, comment) VALUES ( ? , ? )'
-    Visitor.create({
-        name: name,
-        comment: comment
+    // INSERT INTO user (userid, name, pw) VALUES ( ?, ?, ?)
+    User.create({
+        userid: req.body.userid,
+        name: req.body.name,
+        pw: req.body.pw
     }).then((result) => {
         console.log('create >', result);
-        res.send(result); // { id: 4, name: '바나나', comment: '안녕' }
+        res.send(result); // { id: 1, userid: 'test', name: 'test', pw: 'test' }
     })
+
 }
 
-// GET /visitor => localhost:PORT/visitor?id=N
-exports.get_visitor = (req, res) => {
-    console.log(req.query); // { id: '1' }
-    console.log(req.query.id);
+// 로그인 요청
+exports.post_signin = (req, res) => {
+    console.log(req.body);
 
     // [Before]
-    // Visitor.getVisitor(req.query.id, (result) => {
-    //     // result: rows[0] -> { id: 1, name: '홍길동', comment: '내가 왔다.' }
-    //     console.log('get_visitor Cvisitor.js >', result);
-    //     res.send(result);
+    // User.post_signin(req.body, (result) => {
+    //     // result: rows [{}]
+    //     if (result.length > 0) res.send({ isLogin: true, userInfo: result[0] });
+    //     else res.send({ isLogin: false });
     // })
 
     // [After]
-    // SELECT * FROM visitor WHERE id = ? limit 1
-    Visitor.findOne({
-        where: { id: req.query.id }
+    // SELECT * FROM user WHERE userid = ? and pw = ?
+    User.findOne({
+        raw: true,
+        where: {
+            userid: req.body.userid,
+            pw: req.body.pw
+        }
     }).then((result) => {
         console.log('findOne >', result);
-        res.send(result);
+
+        // result
+        // id,pw 일치: {}
+        // 불일치: null
+
+        if (result) {
+            res.send({ isLogin: true, userInfo: result });
+        } else {
+            res.send({ isLogin: false });
+        }
     })
 }
 
-// GET /visitor/:id => localhost:PORT/visitor/:id
-exports.get_visitor2 = (req, res) => {
-    console.log(req.params); // { id: '1' }
-    console.log(req.params.id);
-
-    // 모델에 함수 호출
-    // Visitor.getVisitor(req.params.id, (result) => {
-    //     // result: rows[0] -> { id: 1, name: '홍길동', comment: '내가 왔다.' }
-    //     console.log('get_visitor2 Cvisitor.js >', result);
-    //     res.send(result);
-    // })
-
-    // [After]
-    // SELECT * FROM visitor WHERE id = ? limit 1
-    Visitor.findOne({
-        where: { id: req.params.id }
-    }).then((result) => {
-        console.log('findOne2 >', result); // { id: 1, name: '홍길동', comment: '내가 왔다.' }
-        res.send(result);
-    })
-}
-
-// PATCH /visitor
-exports.patch_visitor = (req, res) => {
-    console.log(req.body); // { id: 4, name: '바나나맛', comment: '우유' }
+// 회원정보 수정 페이지 요청
+exports.post_profile = (req, res) => {
+    console.log(req.body); // {userid: ~}
 
     // [Before]
-    // Visitor.patchVisitor(req.body, (result) => {
-    //     console.log('patchVisitor Cvisitor.js >', result);
-    //     res.send('수정 성공!');
+    // User.post_profile(req.body.userid, (result) => {
+    //     // result: rows [{}]
+
+    //     if (result.length > 0) res.render('profile', { data: result[0] })
     // })
 
     // [After]
-    // 'UPDATE visitor SET name = ?, comment = ? WHERE id = ?'
-    Visitor.update(
+    // SELECT * FROM user WHERE userid = ? LIMIT 1
+    User.findOne({
+        where: { userid: req.body.userid }
+    }).then((result) => {
+        console.log('findOne >', result); // { id: 1, userid: 'test', name: 'test', pw: 'test' }
+        if (result) {
+            res.render('profile', { data: result })
+        }
+    })
+}
+
+// 회원정보 수정 요청
+exports.edit_profile = (req, res) => {
+    console.log(req.body);
+
+    // [Before]
+    // User.edit_profile(req.body, (result) => {
+    //     res.send('회원정보 수정 성공!')
+    // })
+
+    // [After]
+    // UPDATE user SET name = ?, pw = ? where id = ?
+    User.update(
         {
             name: req.body.name,
-            comment: req.body.comment
+            pw: req.body.pw
         },
         {
-            where: {
-                id: req.body.id,
-            }
-        }
-    ).then((result) => {
-        console.log('update >', result); // [ 1 ]
-        res.send('수정 성공!');
-    })
+            where: { id: req.body.id }
+        }).then((result) => {
+            res.send('회원정보 수정 성공!')
+        })
 }
 
-// DELETE /visitor
-exports.delete_visitor = (req, res) => {
-    console.log(req.body);
-    console.log(req.body.id);
+// 회원 탈퇴 요청
+exports.delete_profile = (req, res) => {
+    console.log(req.body); // {id: ~}
 
     // [Before]
-    // Visitor.deleteVisitor(req.body.id, (result) => {
-    //     console.log('deleteVisitor Cvisitor.js >', result);
-    //     res.send('삭제 성공!');
+    // User.delete_profile(req.body.id, (result) => {
+    //     res.send({ deletedId: req.body.id });
     // })
 
     // [After]
-    // DELETE FROM visitor WHERE id = ?
-    Visitor.destroy({
+    // DELETE FROM user WHERE id = ?
+    User.destroy({
         where: { id: req.body.id }
     }).then((result) => {
-        console.log('destroy >', result); // 1
-        res.send('삭제 성공!');
+        res.send({ deletedId: req.body.id });
     })
 }
