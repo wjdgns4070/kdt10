@@ -12,5 +12,7 @@ router.get('/signin', controller.get_signin)
 //POST /user/ signup- 회원가입 요청
 router.post('/signup', controller.post_signup)
 
+router.post('/signin', controller.post_signin)
+
 
 module.exports = router;

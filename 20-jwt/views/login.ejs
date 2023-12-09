@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form name="loginform">
+        <input type="text" id="id" placeholder="id"> <br>
+        <input type="password" id="password" placeholder="password"><br>
+        <button type="button" onclick="login()">로그인</button>
+    </form>
+
+    <script>
+        async function login(){
+            const form = document.forms['loginform']; // 수정된 부분
+
+            try {
+                const res = await axios({
+                    method: 'POST',
+                    url: '/login',
+                    data: {
+                        id: form.id.value, // 수정된 부분
+                        pw: form.password.value // 수정된 부분
+                    }
+                });
+
+                console.log('login res.data>', res.data);
+
+                if (res.data && res.data.isLogin) { // 수정된 부분
+                    localStorage.setItem('login', res.data.token);
+                    document.location.href = '/';
+                } else {
+                    alert(res.data.msg);
+                    form.reset();
+                }
+            } catch (err) {
+                console.log('err', err);
+            }
+        }
+    </script>
+</body>
+</html>
