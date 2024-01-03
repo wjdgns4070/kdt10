@@ -11,7 +11,7 @@ class ClassComponent extends Component {
 
         return(
         <div>
-            <p><b>{title}</b></p>
+            <p style={{color:'red'}}><b>{title}</b></p>
             <img src={book} alt="" />
             <p><b>{author}</b></p>
             <p><b>{price}</b></p>
