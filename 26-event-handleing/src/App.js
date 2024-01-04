@@ -1,21 +1,23 @@
-import SyntheticEvent from './SyntheticEvent'
-import './App.css';
-import ClassBind from './ClassBind';
-import Counter from './Counter';
-import HandlerEx from './HandlerEx'
+import SyntheticEvent from "./SyntheticEvent";
+import "./App.css";
+import ClassBind from "./ClassBind";
+import Counter from "./Counter";
+import HandlerEx from "./HandlerEx";
+import Toprac from "./Toprac";
 
 function App() {
   return (
     <div className="App">
-      <SyntheticEvent/>
+      <SyntheticEvent />
       <hr />
-      <ClassBind/>
+      <ClassBind />
       <hr />
-      <Counter/>
+      <Counter />
       <hr />
-      <HandlerEx/>
+      <HandlerEx />
+      <hr />
+      <Toprac />
     </div>
-
   );
 }
 
