@@ -1,5 +1,6 @@
 import Alphabet from "./Alphabet"
 import MapPrac from './MapPrac'
+import ExCode from './ExCode'
 
 function App() {
     return(
@@ -8,6 +9,9 @@ function App() {
 
             <hr />
             <MapPrac/>
+
+            <hr />
+            <ExCode/>
         </div>
 
     )
