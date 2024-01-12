@@ -1,0 +1,61 @@
+// styles.scss
+
+$circle-size: 50px;
+
+@mixin moveCircle($distance) {
+  @keyframes moveCircle {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    20% {
+      transform: translateX($distance) translateY(0);
+    }
+    40% {
+      transform: translateX(0) translateY($distance);
+    }
+    60% {
+      transform: translateX(-$distance) translateY(0);
+    }
+    80% {
+      transform: translateX(0) translateY(0);
+    }
+
+    100% {
+      
+    }
+  }
+}
+
+.circle-container {
+  display: flex;
+}
+
+.red-circle,
+.blue-circle,
+.green-circle {
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  background-color: transparent;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+@include moveCircle(100px); // 첫 번째 원은 100px 이동
+.red-circle {
+  background-color: red;
+  animation: moveCircle 5s linear infinite;
+}
+
+@include moveCircle(200px); // 두 번째 원은 200px 이동
+.blue-circle {
+  background-color: blue;
+  animation: moveCircle 5s linear infinite ; // 1초 딜레이
+}
+
+@include moveCircle(300px); // 세 번째 원은 300px 이동
+.green-circle {
+  background-color: green;
+  animation: moveCircle 5s linear infinite ; // 2초 딜레이
+}
